@@ -1,0 +1,14 @@
+{% extends 'products/base.html' %}
+{% block title %}Item Details{% endblock %}
+{% block content %}
+<h2>{{ item.name }} ({{ item.sku }})</h2>
+<ul class="list-group">
+  <li class="list-group-item"><strong>Category:</strong> {{ item.category }}</li>
+  <li class="list-group-item"><strong>Supplier:</strong> {{ item.supplier }}</li>
+  <li class="list-group-item"><strong>Quantity:</strong> {{ item.quantity }}</li>
+  <li class="list-group-item"><strong>Price:</strong> {{ item.price }}</li>
+  <li class="list-group-item"><strong>Added:</strong> {{ item.added_date }}</li>
+</ul>
+<a class="btn btn-secondary mt-3" href="{% url 'products:item_edit' item.pk %}">Edit Item</a>
+<a class="btn btn-danger mt-2" href="{% url 'products:item_delete' item.pk %}">Delete Item</a>
+{% endblock %}
